@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @Mod("steveinfernaladventure")
 public class SteveAndTheInfernalAdventure{
     
-	// oggetto logger permette di imettere messaggi nella console di output
+	// oggetto logger permette di immettere messaggi nella console di output
     private static final Logger LOGGER = LogManager.getLogger();
 
     public SteveAndTheInfernalAdventure() {
@@ -35,6 +35,10 @@ public class SteveAndTheInfernalAdventure{
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
+        /*
+         * COSA DA FARE:
+         * */
+        
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
