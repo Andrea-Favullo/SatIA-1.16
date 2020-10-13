@@ -37,6 +37,7 @@ public class SteveAndTheInfernalAdventure{
 
         /*
          * COSA DA FARE:
+         * tradurre i commenti con una spiegazione più comprensibile
          * */
         
         // Register ourselves for server and other game events we are interested in
