@@ -1,0 +1,30 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+# Files from Forge MDK
+forge*changelog.txt
+ASSETS/TheAetherium.docx
+ASSETS/The-Infernal-Adventure.png
+ASSETS/forge-1.16.3-34.1.19-mdk.zip
+ASSETS/3d models/Mod - Lighter.zip
+ASSETS/2d sprites/better_revolver.png
