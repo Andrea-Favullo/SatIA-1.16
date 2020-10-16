@@ -80,7 +80,7 @@ public class SteveAndTheInfernalAdventure{
         }
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
-        	
+        	// prova commit commento da cancellare
         }
     }
 }
