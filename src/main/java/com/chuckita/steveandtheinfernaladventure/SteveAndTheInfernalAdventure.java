@@ -53,34 +53,22 @@ public class SteveAndTheInfernalAdventure{
          */
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-    	
-    }
+    private void doClientStuff(final FMLClientSetupEvent event) {    }
 
-    private void enqueueIMC(final InterModEnqueueEvent event){
+    private void enqueueIMC(final InterModEnqueueEvent event){    }
 
-    }
-
-    private void processIMC(final InterModProcessEvent event){
-
-    }
+    private void processIMC(final InterModProcessEvent event){    }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {
-    	
-    }
+    public void onServerStarting(FMLServerStartingEvent event) {    }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class
     // (this is subscribing to the MOD Event bus for receiving Registry Events)
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
         @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-
-        }
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {        }
         @SubscribeEvent
-        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
-        	
-        }
+        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {        }
     }
 }
