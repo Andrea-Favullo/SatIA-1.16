@@ -3,8 +3,11 @@ package com.chuckita.steveandtheinfernaladventure;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -16,6 +19,8 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.chuckita.steveandtheinfernaladventure.init.ItemInit;
 
 import java.util.stream.Collectors;
 
@@ -30,21 +35,8 @@ public class SteveAndTheInfernalAdventure{
     public static SteveAndTheInfernalAdventure istanza;
     
     public SteveAndTheInfernalAdventure(){
-        // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        // Register the enqueueIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-        // Register the doClientStuff method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-
-        istanza = this;
-        
-        /*
-         * COSA DA FARE:
-         * tradurre i commenti con una spiegazione più comprensibile
-         * */
+    	
+    	istanza = this;
         
         // 	Come creare un messaggio con il logger:
         //LOGGER.info("testo");
@@ -53,21 +45,28 @@ public class SteveAndTheInfernalAdventure{
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event){    }
-    private void doClientStuff(final FMLClientSetupEvent event){    }
-    private void enqueueIMC(final InterModEnqueueEvent event){    }
-    private void processIMC(final InterModProcessEvent event){    }
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event){    }
 
+    //creo tabella menù creativa
+    public static class ModTab extends ItemGroup{
+    	
+    	public static final ModTab istanza = new ModTab(ItemGroup.GROUPS.length, MOD_ID);
+    	
+    	private ModTab(int index, String label) {
+    		super(index, label);
+    	}
+    	@Override
+    	public ItemStack createIcon() {
+    		return new ItemStack(ItemInit.item_revolver);
+    	}
+    }
+    
     // You can use EventBusSubscriber to automatically subscribe events on the contained class
     // (this is subscribing to the MOD Event bus for receiving Registry Events)
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents{
         @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent){        }
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent){}
         @SubscribeEvent
-        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent){        }
+        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent){}
     }
 }

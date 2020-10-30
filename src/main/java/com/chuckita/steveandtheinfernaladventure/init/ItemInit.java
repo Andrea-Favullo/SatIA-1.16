@@ -24,6 +24,6 @@ public class ItemInit {
 	@SubscribeEvent
 	//registro l'oggetto e le sue caratteristiche
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
-		event.getRegistry().register(new Item(new Item.Properties().group(ItemGroup.REDSTONE)).setRegistryName("item_revolver"));
+		event.getRegistry().register(new Item(new Item.Properties().group(SteveAndTheInfernalAdventure.ModTab.istanza)).setRegistryName("item_revolver"));
 	}
 }

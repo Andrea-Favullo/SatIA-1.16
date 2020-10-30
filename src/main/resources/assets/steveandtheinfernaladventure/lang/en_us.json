@@ -1,3 +1,8 @@
 {
+	"language": "English",
+	"language.code": "en_us",
+	"language.region": "United States",
+	"itemGroup.steveinfernaladventure": "Steve and the Infernal Adventure",
 	"item.steveinfernaladventure.item_revolver": "Revolver"
+	
 }
