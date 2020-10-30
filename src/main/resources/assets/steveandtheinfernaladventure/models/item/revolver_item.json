@@ -1,5 +1,5 @@
 {
-	"parent": "item/generated",
+	"parent": "steveinfernaladventure:item/generated",
 	"texture":{
 		"layer0": "steveinfernaladventure:item/item_revolver"
 	}
