@@ -14,14 +14,16 @@ import net.minecraftforge.registries.ObjectHolder;
 //permette alla classe di sottoscrivere tutti gli eventi, li aggiunge al bus principale
 //gli passo l'id e il bus della mod
 @EventBusSubscriber(modid = SteveAndTheInfernalAdventure.MOD_ID, bus = Bus.MOD)
+@ObjectHolder(SteveAndTheInfernalAdventure.MOD_ID)
 public class ItemInit {
 
 	//id dell'oggetto che apparirà in game
-	@ObjectHolder(SteveAndTheInfernalAdventure.MOD_ID + "revolver")
-	public static Item item_revolver;
+	@ObjectHolder(SteveAndTheInfernalAdventure.MOD_ID + "item_revolver")
+	public static final Item item_revolver = null;
 	
 	@SubscribeEvent
+	//registro l'oggetto e le sue caratteristiche
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
-		event.getRegistry().register(new Item(new Item.Properties().group(ItemGroup.REDSTONE)).setRegistryName("revolver"));
+		event.getRegistry().register(new Item(new Item.Properties().group(ItemGroup.REDSTONE)).setRegistryName("item_revolver"));
 	}
 }
