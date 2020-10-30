@@ -23,11 +23,6 @@ run
 
 # Files from Forge MDK
 forge*changelog.txt
-ASSETS/TheAetherium.docx
-ASSETS/The-Infernal-Adventure.png
-ASSETS/3d models/Mod - Lighter.zip
-ASSETS/2d sprites/better_revolver.png
-ASSETS/3d models/Mod - Revolver/tinker.obj
-ASSETS/3d models/Mod - Revolver/obj.mtl
-ASSETS/3d models/Mod - Lighter/tinker.obj
-ASSETS/3d models/Mod - Lighter/obj.mtl
+
+# cartella assets
+ASSETS/*

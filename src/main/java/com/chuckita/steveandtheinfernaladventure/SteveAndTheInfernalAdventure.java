@@ -25,8 +25,11 @@ public class SteveAndTheInfernalAdventure{
     
 	// oggetto logger permette di immettere messaggi nella console di output
     private static final Logger LOGGER = LogManager.getLogger();
-
-    public SteveAndTheInfernalAdventure() {
+    // stringa contenente l'id della mod
+    public static final String MOD_ID = "steveinfernaladventure";
+    public static SteveAndTheInfernalAdventure istanza;
+    
+    public SteveAndTheInfernalAdventure(){
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -36,39 +39,35 @@ public class SteveAndTheInfernalAdventure{
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
+        istanza = this;
+        
         /*
          * COSA DA FARE:
          * tradurre i commenti con una spiegazione più comprensibile
          * */
         
+        // 	Come creare un messaggio con il logger:
+        //LOGGER.info("testo");
+        
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
-        /* 
-         * Come creare un messaggio con il logger:
-         * LOGGER.info("testo");
-         */
-    }
-
-    private void doClientStuff(final FMLClientSetupEvent event) {    }
-
+    private void setup(final FMLCommonSetupEvent event){    }
+    private void doClientStuff(final FMLClientSetupEvent event){    }
     private void enqueueIMC(final InterModEnqueueEvent event){    }
-
     private void processIMC(final InterModProcessEvent event){    }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {    }
+    public void onServerStarting(FMLServerStartingEvent event){    }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class
     // (this is subscribing to the MOD Event bus for receiving Registry Events)
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
+    public static class RegistryEvents{
         @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {        }
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent){        }
         @SubscribeEvent
-        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {        }
+        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent){        }
     }
 }
