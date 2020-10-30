@@ -15,7 +15,7 @@ import net.minecraftforge.registries.ObjectHolder;
 //gli passo l'id e il bus della mod
 @EventBusSubscriber(modid = SteveAndTheInfernalAdventure.MOD_ID, bus = Bus.MOD)
 @ObjectHolder(SteveAndTheInfernalAdventure.MOD_ID)
-public class ItemInit {
+public class ModItemsInit {
 
 	//id dell'oggetto che apparirà in game
 	@ObjectHolder(SteveAndTheInfernalAdventure.MOD_ID + "item_revolver")

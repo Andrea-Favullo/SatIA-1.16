@@ -20,7 +20,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.chuckita.steveandtheinfernaladventure.init.ItemInit;
+import com.chuckita.steveandtheinfernaladventure.init.ModItemsInit;
 
 import java.util.stream.Collectors;
 
@@ -56,7 +56,7 @@ public class SteveAndTheInfernalAdventure{
     	}
     	@Override
     	public ItemStack createIcon() {
-    		return new ItemStack(ItemInit.item_revolver);
+    		return new ItemStack(ModItemsInit.item_revolver);
     	}
     }
     
