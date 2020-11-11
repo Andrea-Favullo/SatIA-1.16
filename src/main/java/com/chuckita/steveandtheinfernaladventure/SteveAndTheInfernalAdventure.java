@@ -25,13 +25,13 @@ import com.chuckita.steveandtheinfernaladventure.init.ModItemsInit;
 import java.util.stream.Collectors;
 
 // id della mod
-@Mod("steveinfernaladventure")
+@Mod("steveandtheinfernaladventure")
 public class SteveAndTheInfernalAdventure{
     
 	// oggetto logger permette di immettere messaggi nella console di output
     private static final Logger LOGGER = LogManager.getLogger();
     // stringa contenente l'id della mod
-    public static final String MOD_ID = "steveinfernaladventure";
+    public static final String MOD_ID = "steveandtheinfernaladventure";
     public static SteveAndTheInfernalAdventure istanza;
     
     public SteveAndTheInfernalAdventure(){
