@@ -2,7 +2,7 @@
 	"language": "English",
 	"language.code": "en_us",
 	"language.region": "United States",
-	"itemGroup.steveandtheinfernaladventure": "Steve and the Infernal Adventure",
-	"item.steveandtheinfernaladventure.item_revolver": "Revolver"
+	"itemGroup.modTab": "Steve and the Infernal Adventure",
+	"item.steveandtheinfernaladventure.revolver": "Revolver"
 	
 }
