@@ -17,4 +17,5 @@ public class RegistryHandler {
 	}
 	
 	public static final RegistryObject<Item> REVOLVER = ITEMS.register("revolver", ItemBase::new);
+	public static final RegistryObject<Item> REVOLVER_AMMO = ITEMS.register("revolver_ammo", ItemBase::new);
 }
