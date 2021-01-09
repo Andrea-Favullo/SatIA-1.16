@@ -4,6 +4,7 @@
 	"language.region": "Italy",
 	"itemGroup.modTab": "Steve and the Infernal Adventure",
 	"item.steveandtheinfernaladventure.revolver": "Revolver",
-	"item.steveandtheinfernaladventure.revolver_ammo": "Munizioni Revolver"
+	"item.steveandtheinfernaladventure.revolver_ammo": "Munizioni Revolver",
+	"block.steveandtheinfernaladventure.crate": "Cassa"
 	
 }

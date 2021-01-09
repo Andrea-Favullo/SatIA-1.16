@@ -14,7 +14,7 @@ import com.chuckita.steveandtheinfernaladventure.util.RegistryHandler;
 @Mod("steveandtheinfernaladventure")
 public class SteveAndTheInfernalAdventure{
     
-    private static final Logger LOGGER = LogManager.getLogger();
+    //ID DELLA MOD
     public static final String MOD_ID = "steveandtheinfernaladventure";
     
     public SteveAndTheInfernalAdventure(){
@@ -29,7 +29,7 @@ public class SteveAndTheInfernalAdventure{
     private void setup(final FMLCommonSetupEvent event) {}
     private void doClientStuff(final FMLCommonSetupEvent event) {}
     
-    //creo tabella menù creativa
+    //TAB CREATIVA CUSTOMIZZATA
     public static final ItemGroup TAB = new ItemGroup("modTab") {
     	@Override
     	public ItemStack createIcon() {

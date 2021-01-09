@@ -4,6 +4,7 @@
 	"language.region": "United States",
 	"itemGroup.modTab": "Steve and the Infernal Adventure",
 	"item.steveandtheinfernaladventure.revolver": "Revolver",
-	"item.steveandtheinfernaladventure.revolver_ammo": "Revolver Ammo"
+	"item.steveandtheinfernaladventure.revolver_ammo": "Revolver Ammo",
+	"block.steveandtheinfernaladventure.crate": "Crate"
 	
 }
