@@ -22,7 +22,7 @@ public class BlockCrate extends Block{
 	//COSTRUTTORE
 	public BlockCrate(AbstractBlock.Properties builder) {
 		super(builder
-				.hardnessAndResistance(2.5f, 2.5f)
+				.hardnessAndResistance(0.5f, 0.5f)
 				.sound(SoundType.WOOD)
 				.harvestLevel(0)
 				.harvestTool(ToolType.AXE));
@@ -49,10 +49,10 @@ public class BlockCrate extends Block{
 	public boolean hasTileEntity(BlockState state) {
 		return true;
 	}
-	
+	/*
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
 		RegistryHandler.CRATE_TILE_ENTITY.get().create();
-	}
+	}*/
 
 }

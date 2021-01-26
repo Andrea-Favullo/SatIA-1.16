@@ -24,6 +24,7 @@ public class RegistryHandler {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SteveAndTheInfernalAdventure.MOD_ID);
 	public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, SteveAndTheInfernalAdventure.MOD_ID);
 	
+	
 	public static void init() {
 		ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 		BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -35,7 +36,7 @@ public class RegistryHandler {
 	//REVOLVER
 	public static final RegistryObject<Item> REVOLVER = ITEMS.register("revolver", () -> new ItemRevolver(new Item.Properties()
 																											.group(SteveAndTheInfernalAdventure.TAB)
-																											.maxStackSize(1), 6));
+																											.maxStackSize(1)));
 	//REVOLVER AMMO
 	public static final RegistryObject<Item> REVOLVER_AMMO = ITEMS.register("revolver_ammo", () -> new ItemRevolverAmmo(new Item.Properties().group(SteveAndTheInfernalAdventure.TAB)
 																																			.maxStackSize(1)
@@ -55,6 +56,11 @@ public class RegistryHandler {
 	//END BLOCK ITEMS
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	//TILE ENTITIES
-	public static final RegistryObject<TileEntity<CrateTileEntity>> CRATE_TILE_ENTITY = TILE_ENTITY_TYPES.register("crate", () -> TileEntityType.Builder.create(CrateTileEntity::new, CRATE).build(null));
+	
+	//public static final RegistryObject<TileEntity<CrateTileEntity>> CRATE_TILE_ENTITY = TILE_ENTITY_TYPES.register("crate", () -> TileEntityType.Builder.create(CrateTileEntity::new, CRATE).build(null));
+	//public static final RegistryObject<TileEntity<CrateTileEntity>> CRATE_TILE_ENTITY = TILE_ENTITY_TYPES.register("crate", () -> new CrateTileEntity());
+	
 	//END TILE ENTITIES
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	
 }
