@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -48,10 +49,19 @@ public class BlockCrate extends Block{
 			return ActionResultType.SUCCESS;
 		} else {
 			//INVIO UN MESSAGGIO IN CHAT
-			if(player.isSneaking()) {
-				player.sendMessage(new StringTextComponent("Hai cliccato sulla cassa in modalità stealth"), player.getUniqueID());
-			}else{
-				player.sendMessage(new StringTextComponent("Hai cliccato sulla cassa"), player.getUniqueID());
+			if(!player.isSneaking()) {
+				
+				player.sendMessage(new StringTextComponent("Hai inserito un oggetto"), player.getUniqueID());
+				ItemStack itemOnHand = player.getHeldItemMainhand();
+				
+				if(itemOnHand.getCount()>0) {
+					
+					
+					
+					// tolgo un item
+					itemOnHand.setCount( itemOnHand.getCount() - 1 );
+					
+				}
 			}
 			return ActionResultType.CONSUME;
 		}
