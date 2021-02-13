@@ -2,9 +2,15 @@
 	"language": "Italian",
 	"language.code": "it_it",
 	"language.region": "Italy",
+	
 	"itemGroup.modTab": "Steve and the Infernal Adventure",
+	
 	"item.steveandtheinfernaladventure.revolver": "Revolver",
 	"item.steveandtheinfernaladventure.revolver_ammo": "Munizioni Revolver",
-	"block.steveandtheinfernaladventure.crate": "Cassa"
 	
+	"block.steveandtheinfernaladventure.crate": "Cassa",
+	
+	"subtitle.steveandtheinfernaladventure.crate_placing": "Cassa piazzata",
+	"subtitle.steveandtheinfernaladventure.crate_break": "Cassa distrutta",
+	"subtitle.steveandtheinfernaladventure.crate_breaking": "Distruzione di una cassa"
 }

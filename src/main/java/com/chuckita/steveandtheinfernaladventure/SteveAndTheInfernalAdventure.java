@@ -9,6 +9,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.chuckita.steveandtheinfernaladventure.util.RegistryHandler;
+import com.chuckita.steveandtheinfernaladventure.util.SoundRegisterListener;
 
 // id della mod
 @Mod("steveandtheinfernaladventure")
@@ -24,6 +25,7 @@ public class SteveAndTheInfernalAdventure{
     	RegistryHandler.init();
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new SoundRegisterListener());
     }
 
     private void setup(final FMLCommonSetupEvent event) {}

@@ -1,6 +1,7 @@
 package com.chuckita.steveandtheinfernaladventure.blocks;
 
 import com.chuckita.steveandtheinfernaladventure.util.RegistryHandler;
+import com.chuckita.steveandtheinfernaladventure.util.SoundRegistrator;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -10,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.StringTextComponent;
@@ -23,7 +25,17 @@ public class BlockCrate extends Block{
 	public BlockCrate(AbstractBlock.Properties builder) {
 		super(builder
 				.hardnessAndResistance(0.5f, 0.5f)
-				.sound(SoundType.WOOD)
+				
+				.sound(new SoundType(
+						1.0F, //volume
+						1.0F, //intonazione (pitch)
+						SoundRegistrator.CRATE_BREAK, //distruzione blocco
+						SoundEvents.BLOCK_WOOD_STEP, //calpesto il blocco
+						SoundRegistrator.CRATE_PLACING, //piazzo il blocco
+						SoundRegistrator.CRATE_BREAKING, //colpisco il blocco
+						SoundEvents.BLOCK_WOOD_FALL) // ???
+				)
+				
 				.harvestLevel(0)
 				.harvestTool(ToolType.AXE));
 	}

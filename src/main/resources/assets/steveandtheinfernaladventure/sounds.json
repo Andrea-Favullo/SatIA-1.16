@@ -1,0 +1,25 @@
+{
+	"crate_placing":{
+		"category": "block",
+    	"sounds": [
+    		"steveandtheinfernaladventure:crate_placing"
+    	],
+    	"subtitle": "subtitle.steveandtheinfernaladventure.crate_placing"
+	},
+	
+	"crate_break":{
+		"category": "block",
+    	"sounds": [
+    		"steveandtheinfernaladventure:crate_break"
+    	],
+    	"subtitle": "subtitle.steveandtheinfernaladventure.crate_break"
+	},
+	
+	"crate_breaking":{
+		"category": "block",
+    	"sounds": [
+    		"steveandtheinfernaladventure:crate_breaking"
+    	],
+    	"subtitle": "subtitle.steveandtheinfernaladventure.crate_breaking"
+	}
+}

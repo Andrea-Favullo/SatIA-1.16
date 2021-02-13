@@ -12,5 +12,4 @@ public class ItemCrate extends BlockItem {
 		super(blockIn, new Item.Properties().group(SteveAndTheInfernalAdventure.TAB));
 	}
 
-
 }
