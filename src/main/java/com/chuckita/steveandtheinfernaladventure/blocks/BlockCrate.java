@@ -1,6 +1,6 @@
 package com.chuckita.steveandtheinfernaladventure.blocks;
 
-import com.chuckita.steveandtheinfernaladventure.util.RegistryHandler;
+import com.chuckita.steveandtheinfernaladventure.util.SIATileEntityTypes;
 import com.chuckita.steveandtheinfernaladventure.util.SoundRegistrator;
 
 import net.minecraft.block.AbstractBlock;
@@ -71,10 +71,10 @@ public class BlockCrate extends Block{
 	public boolean hasTileEntity(BlockState state) {
 		return true;
 	}
-	/*
+	
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		RegistryHandler.CRATE_TILE_ENTITY.get().create();
-	}*/
+		return SIATileEntityTypes.CRATE.get().create();
+	}
 
 }
