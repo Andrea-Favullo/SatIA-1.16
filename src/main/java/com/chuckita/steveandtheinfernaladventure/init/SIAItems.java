@@ -24,10 +24,10 @@ public class SIAItems {
 	public static final RegistryObject<Item> REVOLVER = ITEMS.register("revolver", () -> new ItemRevolver(new Item.Properties()
 			.group(SteveAndTheInfernalAdventure.TAB)
 			.maxStackSize(1)));
-	//REVOLVER AMMO
+	// REVOLVER AMMO
 	public static final RegistryObject<Item> REVOLVER_AMMO = ITEMS.register("revolver_ammo", () -> new ItemRevolverAmmo(new Item.Properties()
 			.group(SteveAndTheInfernalAdventure.TAB)
 			.maxStackSize(1)));
-	//CRATE
+	// CRATE
 	public static final RegistryObject<Item> CRATE_ITEM = ITEMS.register("crate", () -> new ItemCrate(SIABlocks.CRATE.get()));
 }

@@ -18,7 +18,7 @@ public class SIATileEntityTypes {
 		TILE_ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}
 	
-	//CRATE
+	// CRATE
 	public static final RegistryObject<TileEntityType<CrateTileEntity>> CRATE = TILE_ENTITY_TYPES.register("crate", () -> TileEntityType.Builder.create(CrateTileEntity::new, SIABlocks.CRATE.get()).build(null));
 	
 }

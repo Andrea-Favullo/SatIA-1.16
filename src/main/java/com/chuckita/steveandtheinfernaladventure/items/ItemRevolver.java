@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -84,14 +85,13 @@ public class ItemRevolver extends Item {
 	    	tooltip.add( new StringTextComponent(Integer.toString(stack.getTag().getInt("bullets"))));
 	    }
 	    
-	    /*
 	    boolean isShiftPressed = Screen.func_231173_s_();
 	    if(!isShiftPressed) {
 	    	tooltip.add(new StringTextComponent("Premi shift per controllare il caricatore"));
 	    }else {
-	    	
-	    	tooltip.add(new StringTextComponent(this.remainingBullets()+" proiettili rimasti"));
-	    }*/
+	    	ItemStack revolver = stack;
+	    	tooltip.add(new StringTextComponent(revolver.getTag().getInt("bullets")+" proiettili rimasti"));
+	    }
 	}
 
 }

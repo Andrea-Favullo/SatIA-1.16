@@ -23,7 +23,7 @@ import net.minecraftforge.common.ToolType;
 
 public class BlockCrate extends Block {
 
-	// COSTRUTTORE
+	// metodo costruttore
 	public BlockCrate(AbstractBlock.Properties builder) {
 		super(builder.hardnessAndResistance(0.5f, 0.5f)
 
@@ -39,26 +39,27 @@ public class BlockCrate extends Block {
 				.harvestLevel(0).harvestTool(ToolType.AXE));
 	}
 
-	// QUANDO FACCIO TASTO DESTRO SULLA CASSA
+	// quando faccio tasto destro sulla cassa
 	@Override
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
-			Hand handIn, BlockRayTraceResult hit) {
-		// PER GLI ALTRI GIOCATORI VERRÀ SEGNATA COME AZIONE ESEGUITA
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+		//remote = singleplayer
 		if (worldIn.isRemote) {
 			return ActionResultType.SUCCESS;
 		} else {
-			// INVIO UN MESSAGGIO IN CHAT
 			if (!player.isSneaking()) {
-
-				player.sendMessage(new StringTextComponent("Hai inserito un oggetto"), player.getUniqueID());
+				//recupero l'item che tiene in mano il giocatore
 				ItemStack itemOnHand = player.getHeldItemMainhand();
 
+				//check
+				player.sendMessage(new StringTextComponent(""), player.getUniqueID());
+
+				//prima di inserire item faccio dei controlli
 				if (itemOnHand.getCount() > 0) {
 
-					// tolgo un item
+					player.sendMessage(new StringTextComponent("Hai inserito un oggetto"), player.getUniqueID());
+					// tolgo un item dalla mano del giocatore
 					itemOnHand.setCount(itemOnHand.getCount() - 1);
 					
-
 				}
 			}
 			return ActionResultType.CONSUME;
@@ -75,7 +76,7 @@ public class BlockCrate extends Block {
 		return SIATileEntityTypes.CRATE.get().create();
 	}
 
-	// FEATURES
+	// il blocco viene distrutto se un'entità cade sul blocco da abbastanza in alto
 	@Override
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
 		entityIn.onLivingFall(fallDistance, 0.0F);

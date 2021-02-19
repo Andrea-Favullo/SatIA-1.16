@@ -9,7 +9,9 @@ import net.minecraft.item.Item;
 public class ItemCrate extends BlockItem {
 
 	public ItemCrate(Block blockIn) {
-		super(blockIn, new Item.Properties().group(SteveAndTheInfernalAdventure.TAB));
+		super(blockIn, new Item.Properties()
+				.group(SteveAndTheInfernalAdventure.TAB)
+				.maxStackSize(1));
 	}
 
 }

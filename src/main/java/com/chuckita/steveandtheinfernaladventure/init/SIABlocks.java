@@ -20,6 +20,6 @@ public class SIABlocks {
 		BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}
 	
-	//CRATE
+	// CRATE
 	public static final RegistryObject<Block> CRATE = BLOCKS.register("crate", () -> new BlockCrate( AbstractBlock.Properties.create(Material.WOOD)));
 }
