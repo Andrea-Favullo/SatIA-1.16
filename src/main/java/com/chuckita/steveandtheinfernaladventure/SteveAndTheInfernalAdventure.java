@@ -10,7 +10,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import com.chuckita.steveandtheinfernaladventure.init.SIABlocks;
 import com.chuckita.steveandtheinfernaladventure.init.SIAItems;
 import com.chuckita.steveandtheinfernaladventure.init.SIATileEntityTypes;
-import com.chuckita.steveandtheinfernaladventure.util.RegistryHandler;
 import com.chuckita.steveandtheinfernaladventure.util.SoundRegisterListener;
 
 // id della mod
@@ -39,7 +38,7 @@ public class SteveAndTheInfernalAdventure{
     public static final ItemGroup TAB = new ItemGroup("modTab") {
     	@Override
     	public ItemStack createIcon() {
-    		return new ItemStack(RegistryHandler.REVOLVER.get());
+    		return new ItemStack(SIAItems.REVOLVER.get());
     	}
     };
 

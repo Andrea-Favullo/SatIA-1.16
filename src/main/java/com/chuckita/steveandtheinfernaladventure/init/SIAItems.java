@@ -27,8 +27,7 @@ public class SIAItems {
 	//REVOLVER AMMO
 	public static final RegistryObject<Item> REVOLVER_AMMO = ITEMS.register("revolver_ammo", () -> new ItemRevolverAmmo(new Item.Properties()
 			.group(SteveAndTheInfernalAdventure.TAB)
-			.maxStackSize(1)
-					,18));
+			.maxStackSize(1)));
 	//CRATE
 	public static final RegistryObject<Item> CRATE_ITEM = ITEMS.register("crate", () -> new ItemCrate(SIABlocks.CRATE.get()));
 }

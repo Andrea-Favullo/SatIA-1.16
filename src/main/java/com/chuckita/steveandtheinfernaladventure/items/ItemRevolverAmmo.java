@@ -5,9 +5,8 @@ import net.minecraft.item.Item;
 public class ItemRevolverAmmo extends Item{
 
 	
-	public ItemRevolverAmmo(Properties properties, int bullets) {
+	public ItemRevolverAmmo(Properties properties) {
 		super(properties);
-		this.bullets=bullets;
 	}
 	
 	private static final int maximumCapacity=18;

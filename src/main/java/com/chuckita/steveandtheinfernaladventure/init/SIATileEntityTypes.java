@@ -2,7 +2,6 @@ package com.chuckita.steveandtheinfernaladventure.init;
 
 import com.chuckita.steveandtheinfernaladventure.SteveAndTheInfernalAdventure;
 import com.chuckita.steveandtheinfernaladventure.tileentity.CrateTileEntity;
-import com.chuckita.steveandtheinfernaladventure.util.RegistryHandler;
 
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -20,18 +19,6 @@ public class SIATileEntityTypes {
 	}
 	
 	//CRATE
-	public static final RegistryObject<TileEntityType<CrateTileEntity>> CRATE = TILE_ENTITY_TYPES.register("crate", () -> TileEntityType.Builder.create(CrateTileEntity::new, RegistryHandler.CRATE.get()).build(null)
-			//makeType( CrateTileEntity::new, () -> RegistryHandler.CRATE.get())
-	);
+	public static final RegistryObject<TileEntityType<CrateTileEntity>> CRATE = TILE_ENTITY_TYPES.register("crate", () -> TileEntityType.Builder.create(CrateTileEntity::new, SIABlocks.CRATE.get()).build(null));
 	
-	
-	
-	/*
-	//codice misterioso 
-	private static <T extends TileEntity> Supplier<TileEntityType<T>> makeType(Supplier<T> create, Supplier<Block> valid){
-		return makeTypeMultipleBlocks(create, () -> ImmutableSet.of(valid.get()));
-	}
-	private static <T extends TileEntity> Supplier<TileEntityType<T>> makeType( Supplier<T> create, Supplier<Block> valid){
-		return () -> new TileEntityType<>(create, ImmutableSet.of(valid.get()), null);
-	}*/
 }
