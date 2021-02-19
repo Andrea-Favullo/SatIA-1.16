@@ -6,8 +6,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import com.chuckita.steveandtheinfernaladventure.init.SIABlocks;
+import com.chuckita.steveandtheinfernaladventure.init.SIAItems;
+import com.chuckita.steveandtheinfernaladventure.init.SIATileEntityTypes;
 import com.chuckita.steveandtheinfernaladventure.util.RegistryHandler;
 import com.chuckita.steveandtheinfernaladventure.util.SoundRegisterListener;
 
@@ -22,7 +24,9 @@ public class SteveAndTheInfernalAdventure{
     	FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     	FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
     	
-    	RegistryHandler.init();
+    	SIABlocks.init();
+    	SIAItems.init();
+    	SIATileEntityTypes.init();
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new SoundRegisterListener());

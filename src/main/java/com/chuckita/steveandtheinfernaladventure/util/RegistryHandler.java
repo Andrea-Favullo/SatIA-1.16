@@ -5,13 +5,11 @@ import com.chuckita.steveandtheinfernaladventure.blocks.BlockCrate;
 import com.chuckita.steveandtheinfernaladventure.items.ItemCrate;
 import com.chuckita.steveandtheinfernaladventure.items.ItemRevolver;
 import com.chuckita.steveandtheinfernaladventure.items.ItemRevolverAmmo;
-import com.chuckita.steveandtheinfernaladventure.tileentity.CrateTileEntity;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
