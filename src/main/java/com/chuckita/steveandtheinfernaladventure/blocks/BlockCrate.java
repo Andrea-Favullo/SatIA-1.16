@@ -1,15 +1,22 @@
 package com.chuckita.steveandtheinfernaladventure.blocks;
 
 import com.chuckita.steveandtheinfernaladventure.init.SIATileEntityTypes;
+import com.chuckita.steveandtheinfernaladventure.tileentity.CrateTileEntity;
 import com.chuckita.steveandtheinfernaladventure.util.SoundRegistrator;
 
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.TargetBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -47,19 +54,69 @@ public class BlockCrate extends Block {
 			return ActionResultType.SUCCESS;
 		} else {
 			if (!player.isSneaking()) {
+				
 				//recupero l'item che tiene in mano il giocatore
 				ItemStack itemOnHand = player.getHeldItemMainhand();
+				
+				//recupero la tile entity della cassa
+				CrateTileEntity crate = (CrateTileEntity)worldIn.getTileEntity(pos);
+				//recupero il compound della cassa
+				CompoundNBT crate_compound = crate.getUpdateTag();
+				//recupero le informazioni
+				crate.read(state, crate_compound);
+				
+				//stampo le informazioni
+				player.sendMessage(new StringTextComponent("[1] Compound recuperato:\n" + crate_compound.toString()), player.getUniqueID());
 
-				//check
-				player.sendMessage(new StringTextComponent(""), player.getUniqueID());
+				
+				if(!crate_compound.hasUniqueId("item")) {
 
-				//prima di inserire item faccio dei controlli
-				if (itemOnHand.getCount() > 0) {
-
-					player.sendMessage(new StringTextComponent("Hai inserito un oggetto"), player.getUniqueID());
-					// tolgo un item dalla mano del giocatore
-					itemOnHand.setCount(itemOnHand.getCount() - 1);
+					//chat warning
+					player.sendMessage(new StringTextComponent("[2] Esiste un campo item!"), player.getUniqueID());
 					
+					//prima di inserire item faccio dei controlli
+					if ((itemOnHand.getCount() > 0) ) {
+	
+						/*
+						 * { 
+						 * 	item:{
+						 * 		id:"",
+						 * 		Count:-
+						 * },
+						 * x:-,
+						 * y:-,
+						 * z:-,
+						 * id:""
+						 * }
+						 * 
+						 * */
+	
+						//chat warning
+						player.sendMessage(new StringTextComponent("[3] Hai inserito un oggetto ..."), player.getUniqueID());
+						/*
+						compound.putString("id", itemOnHand.serializeNBT().getString("id"));
+						compound.putInt("count", itemOnHand.serializeNBT().getInt("Count"));
+						*/
+						
+						//aggiungo l'item
+						crate_compound.put("item", itemOnHand.serializeNBT());
+						//aggiorno il compound
+						crate_compound = crate.write(crate_compound);
+						
+						//chat warning
+						player.sendMessage(new StringTextComponent("[4] Compound aggiornato:\n" + crate_compound.toString()), player.getUniqueID());
+						
+						// tolgo un item dalla mano del giocatore
+						itemOnHand.setCount(itemOnHand.getCount() - 1);
+						
+					}else {
+						
+						//recupero le informazioni
+						crate.read(state, crate_compound);
+						
+						//stampo le informazioni
+						player.sendMessage(new StringTextComponent("[3] Contenuti:\n" + crate_compound.toString()), player.getUniqueID());
+					}
 				}
 			}
 			return ActionResultType.CONSUME;
@@ -84,7 +141,10 @@ public class BlockCrate extends Block {
 			//worldIn.destroyBlock(pos, false);
 			worldIn.func_241212_a_(pos, false, entityIn, 4);
 		}
-		
 	}
-
+	
+	@Override
+	public void onProjectileCollision(World worldIn, BlockState state, BlockRayTraceResult hit, ProjectileEntity projectile) {
+		worldIn.destroyBlock(hit.getPos(), false);
+	}
 }

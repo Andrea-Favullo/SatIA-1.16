@@ -51,7 +51,6 @@ public class ItemRevolver extends Item {
 				
 				Vector3d vec = playerIn.getLookVec();
 				Vector3d vecDir = vec.add(playerIn.getRNG().nextGaussian()*.1, playerIn.getRNG().nextGaussian()*.1, playerIn.getRNG().nextGaussian()*.1);
-				
 				playerIn.sendMessage(new StringTextComponent(vecDir.toString()), playerIn.getUniqueID());
 				
 			}else {
@@ -80,17 +79,15 @@ public class ItemRevolver extends Item {
 	    //Screen.func_231173_s_() SHIFT
 	    //Screen.func_231174_t_() ALT
 	    
-	    if (stack.hasTag() && stack.getTag().hasUniqueId("bullets"))
-	    {
-	    	tooltip.add( new StringTextComponent(Integer.toString(stack.getTag().getInt("bullets"))));
-	    }
+	    ItemStack revolver = stack;
 	    
-	    boolean isShiftPressed = Screen.func_231173_s_();
-	    if(!isShiftPressed) {
-	    	tooltip.add(new StringTextComponent("Premi shift per controllare il caricatore"));
-	    }else {
-	    	ItemStack revolver = stack;
-	    	tooltip.add(new StringTextComponent(revolver.getTag().getInt("bullets")+" proiettili rimasti"));
+	    if( revolver.hasTag() ) {
+		    boolean isShiftPressed = Screen.func_231173_s_();
+		    if(!isShiftPressed) {
+		    	tooltip.add(new StringTextComponent("Premi shift per controllare il caricatore"));
+		    }else{
+		    	tooltip.add(new StringTextComponent( revolver.getTag().getInt("bullets")+" proiettili rimasti" ));
+		    }
 	    }
 	}
 
