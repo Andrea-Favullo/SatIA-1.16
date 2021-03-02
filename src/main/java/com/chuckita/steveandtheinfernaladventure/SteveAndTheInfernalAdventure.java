@@ -1,16 +1,15 @@
 package com.chuckita.steveandtheinfernaladventure;
 
+import com.chuckita.steveandtheinfernaladventure.init.SIABlocks;
+import com.chuckita.steveandtheinfernaladventure.init.SIAItems;
+import com.chuckita.steveandtheinfernaladventure.init.SIATileEntityTypes;
+import com.chuckita.steveandtheinfernaladventure.util.SoundRegisterListener;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-
-import com.chuckita.steveandtheinfernaladventure.init.SIABlocks;
-import com.chuckita.steveandtheinfernaladventure.init.SIAItems;
-import com.chuckita.steveandtheinfernaladventure.init.SIATileEntityTypes;
-import com.chuckita.steveandtheinfernaladventure.util.SoundRegisterListener;
 
 // id della mod
 @Mod("steveandtheinfernaladventure")
@@ -34,9 +33,10 @@ public class SteveAndTheInfernalAdventure{
     private void setup(final FMLCommonSetupEvent event) {}
     private void doClientStuff(final FMLCommonSetupEvent event) {}
     
-    //TAB CREATIVA CUSTOMIZZATA
+    //tab creativa
     public static final ItemGroup TAB = new ItemGroup("modTab") {
     	@Override
+        //icona
     	public ItemStack createIcon() {
     		return new ItemStack(SIAItems.REVOLVER.get());
     	}

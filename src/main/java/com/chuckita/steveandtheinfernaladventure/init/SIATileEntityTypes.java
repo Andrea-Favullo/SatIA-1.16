@@ -2,7 +2,6 @@ package com.chuckita.steveandtheinfernaladventure.init;
 
 import com.chuckita.steveandtheinfernaladventure.SteveAndTheInfernalAdventure;
 import com.chuckita.steveandtheinfernaladventure.tileentity.CrateTileEntity;
-
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

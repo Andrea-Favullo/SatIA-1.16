@@ -1,10 +1,5 @@
 package com.chuckita.steveandtheinfernaladventure.items;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,6 +16,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemRevolver extends Item {
 
 	public ItemRevolver(Properties properties) {
@@ -35,7 +34,7 @@ public class ItemRevolver extends Item {
 		ItemStack revolver = playerIn.getHeldItem(handIn);
 		
 		if(!worldIn.isRemote) {
-			//se il revolver non ha un compo8und lo creo, altrimenti uso quello che già esiste per quell'istanza
+			//se il revolver non ha un compo8und lo creo, altrimenti uso quello che giï¿½ esiste per quell'istanza
 			if (revolver.getTag()==null) {
 				revolver.setTag(new CompoundNBT());
 			}
@@ -43,7 +42,7 @@ public class ItemRevolver extends Item {
 			//recupero il compound dell'istanza del revolver
 			CompoundNBT compound_revolver = revolver.getTag();
 			
-			//se nel compound l'attributo bullets ha più di zero proiettili spara, altrimenti ricarica
+			//se nel compound l'attributo bullets ha piï¿½ di zero proiettili spara, altrimenti ricarica
 			if(compound_revolver.getInt("bullets")>0) {
 				compound_revolver.putInt("bullets", compound_revolver.getInt("bullets")-1 );
 				//sparo
@@ -82,7 +81,7 @@ public class ItemRevolver extends Item {
 	    ItemStack revolver = stack;
 	    
 	    if( revolver.hasTag() ) {
-		    boolean isShiftPressed = Screen.func_231173_s_();
+		    boolean isShiftPressed = Screen.hasShiftDown();
 		    if(!isShiftPressed) {
 		    	tooltip.add(new StringTextComponent("Premi shift per controllare il caricatore"));
 		    }else{

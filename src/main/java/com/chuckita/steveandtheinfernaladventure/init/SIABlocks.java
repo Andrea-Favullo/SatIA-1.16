@@ -2,7 +2,6 @@ package com.chuckita.steveandtheinfernaladventure.init;
 
 import com.chuckita.steveandtheinfernaladventure.SteveAndTheInfernalAdventure;
 import com.chuckita.steveandtheinfernaladventure.blocks.BlockCrate;
-
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

@@ -3,20 +3,15 @@ package com.chuckita.steveandtheinfernaladventure.blocks;
 import com.chuckita.steveandtheinfernaladventure.init.SIATileEntityTypes;
 import com.chuckita.steveandtheinfernaladventure.tileentity.CrateTileEntity;
 import com.chuckita.steveandtheinfernaladventure.util.SoundRegistrator;
-
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.TargetBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -55,7 +50,7 @@ public class BlockCrate extends Block {
 		} else {
 			if (!player.isSneaking()) {
 				
-				//recupero l'item che tiene in mano il giocatore
+				//recupero l' item che tiene in mano il giocatore
 				ItemStack itemOnHand = player.getHeldItemMainhand();
 				
 				//recupero la tile entity della cassa
@@ -98,7 +93,7 @@ public class BlockCrate extends Block {
 						compound.putInt("count", itemOnHand.serializeNBT().getInt("Count"));
 						*/
 						
-						//aggiungo l'item
+						//aggiungo l' item
 						crate_compound.put("item", itemOnHand.serializeNBT());
 						//aggiorno il compound
 						crate_compound = crate.write(crate_compound);
@@ -109,14 +104,14 @@ public class BlockCrate extends Block {
 						// tolgo un item dalla mano del giocatore
 						itemOnHand.setCount(itemOnHand.getCount() - 1);
 						
-					}else {
-						
-						//recupero le informazioni
-						crate.read(state, crate_compound);
-						
-						//stampo le informazioni
-						player.sendMessage(new StringTextComponent("[3] Contenuti:\n" + crate_compound.toString()), player.getUniqueID());
 					}
+				}else {
+					
+					//recupero le informazioni
+					crate.read(state, crate_compound);
+					
+					//stampo le informazione
+					player.sendMessage(new StringTextComponent("[3] Contenuti:\n" + crate_compound.toString()), player.getUniqueID());
 				}
 			}
 			return ActionResultType.CONSUME;
@@ -133,13 +128,12 @@ public class BlockCrate extends Block {
 		return SIATileEntityTypes.CRATE.get().create();
 	}
 
-	// il blocco viene distrutto se un'entità cade sul blocco da abbastanza in alto
+	// il blocco viene distrutto se un' entitÃ  cade sul blocco da abbastanza in alto
 	@Override
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
 		entityIn.onLivingFall(fallDistance, 0.0F);
-		if( fallDistance > 4.0f) {
-			//worldIn.destroyBlock(pos, false);
-			worldIn.func_241212_a_(pos, false, entityIn, 4);
+		if( fallDistance > 4.0f ) {
+			worldIn.destroyBlock(pos, false);
 		}
 	}
 	

@@ -1,7 +1,6 @@
 package com.chuckita.steveandtheinfernaladventure.tileentity;
 
 import com.chuckita.steveandtheinfernaladventure.init.SIATileEntityTypes;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -41,7 +40,7 @@ public class CrateTileEntity extends TileEntity {
 	}
 	
 	public void read(BlockState blockState, CompoundNBT compound) {
-		super.func_230337_a_(blockState, compound);
+		super.read(blockState, compound);
 		
 		ItemStack item_stack = new ItemStack(Items.COOKED_CHICKEN, 23);
 		

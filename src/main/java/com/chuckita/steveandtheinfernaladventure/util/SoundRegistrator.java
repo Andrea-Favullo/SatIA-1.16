@@ -1,7 +1,6 @@
 package com.chuckita.steveandtheinfernaladventure.util;
 
 import com.chuckita.steveandtheinfernaladventure.SteveAndTheInfernalAdventure;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 

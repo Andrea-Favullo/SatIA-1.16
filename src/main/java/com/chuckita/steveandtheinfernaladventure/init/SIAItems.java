@@ -4,7 +4,6 @@ import com.chuckita.steveandtheinfernaladventure.SteveAndTheInfernalAdventure;
 import com.chuckita.steveandtheinfernaladventure.items.ItemCrate;
 import com.chuckita.steveandtheinfernaladventure.items.ItemRevolver;
 import com.chuckita.steveandtheinfernaladventure.items.ItemRevolverAmmo;
-
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
