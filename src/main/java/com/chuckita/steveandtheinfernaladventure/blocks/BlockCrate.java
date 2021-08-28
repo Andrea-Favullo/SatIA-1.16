@@ -3,11 +3,10 @@ package com.chuckita.steveandtheinfernaladventure.blocks;
 import com.chuckita.steveandtheinfernaladventure.init.SIATileEntityTypes;
 import com.chuckita.steveandtheinfernaladventure.tileentity.CrateTileEntity;
 import com.chuckita.steveandtheinfernaladventure.util.SoundRegistrator;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
+import net.minecraft.block.material.PushReaction;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
@@ -23,7 +22,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
-public class BlockCrate extends Block {
+public class BlockCrate extends FallingBlock {
 
 	// metodo costruttore
 	public BlockCrate(AbstractBlock.Properties builder) {
@@ -37,14 +36,12 @@ public class BlockCrate extends Block {
 						SoundRegistrator.CRATE_BREAKING, // colpisco il blocco
 						SoundEvents.BLOCK_WOOD_FALL) // ???
 				)
-
 				.harvestLevel(0).harvestTool(ToolType.AXE));
 	}
 
 	// quando faccio tasto destro sulla cassa
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		//remote = singleplayer
 		if (worldIn.isRemote) {
 			return ActionResultType.SUCCESS;
 		} else {
@@ -71,21 +68,7 @@ public class BlockCrate extends Block {
 					
 					//prima di inserire item faccio dei controlli
 					if ((itemOnHand.getCount() > 0) ) {
-	
-						/*
-						 * { 
-						 * 	item:{
-						 * 		id:"",
-						 * 		Count:-
-						 * },
-						 * x:-,
-						 * y:-,
-						 * z:-,
-						 * id:""
-						 * }
-						 * 
-						 * */
-	
+
 						//chat warning
 						player.sendMessage(new StringTextComponent("[3] Hai inserito un oggetto ..."), player.getUniqueID());
 						/*
@@ -128,7 +111,9 @@ public class BlockCrate extends Block {
 		return SIATileEntityTypes.CRATE.get().create();
 	}
 
-	// il blocco viene distrutto se un' entità cade sul blocco da abbastanza in alto
+	/**
+	 * il blocco viene distrutto se un' entità cade sul blocco da abbastanza in alto
+	 */
 	@Override
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
 		entityIn.onLivingFall(fallDistance, 0.0F);
@@ -136,9 +121,18 @@ public class BlockCrate extends Block {
 			worldIn.destroyBlock(pos, false);
 		}
 	}
-	
+	/**
+	* il blocco viene distrutto se viene colpito da una freccia
+	 */
 	@Override
 	public void onProjectileCollision(World worldIn, BlockState state, BlockRayTraceResult hit, ProjectileEntity projectile) {
 		worldIn.destroyBlock(hit.getPos(), false);
+	}
+	/**
+	 * il blocco viene distrutto se cade dall'alto
+	 */
+	@Override
+	public void onEndFalling(World worldIn, BlockPos pos, BlockState fallingState, BlockState hitState, FallingBlockEntity fallingBlock) {
+		worldIn.destroyBlock(pos, false);
 	}
 }
